@@ -11,8 +11,25 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors({ origin: 'http://localhost:3000' }));
+// Middleware - allow localhost and any vercel or custom origin
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://mini-project-manager-ten.vercel.app',
+  process.env.CLIENT_URL
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // allow requests with no origin (like mobile apps, curl, postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    return callback(null, true); // Permissive for assignment demo review
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
