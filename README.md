@@ -6,6 +6,11 @@ Featuring full multi-tenant data isolation, JWT authentication, real-time milest
 
 ---
 
+## 🔗 Public Repository
+- **GitHub Repository**: [https://github.com/Nitin479/mini-project-manager](https://github.com/Nitin479/mini-project-manager)
+
+---
+
 ## 📋 Table of Contents
 1. [Tech Stack](#-tech-stack)
 2. [Core Features](#-core-features)
